@@ -21,7 +21,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
 
-      - name: Build & Test
+      - name: Install package
         run: |
           pip install -e .[test]
-          pytest
+
+      - name: Run tests
+        run: pytest
