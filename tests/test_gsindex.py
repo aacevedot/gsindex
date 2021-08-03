@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from gsindex import geometrical_separability_index
+from src.gsindex import geometrical_separability_index
 
 
 class TestGeometricalSeparabilityIndex(unittest.TestCase):
