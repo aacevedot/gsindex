@@ -1,14 +1,17 @@
-name: CI
+name: Integrate features
 
-on: [pull_request] #[pull_request, push, workflow_dispatch]
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  test:
+  test_pull_request:
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
-        os: ["ubuntu-latest"] #["ubuntu-latest", "windows-latest", "macos-latest"]
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
         python-version: ["3.8", "3.9"]
 
     steps:
@@ -22,8 +25,7 @@ jobs:
           architecture: x64
 
       - name: Install package
-        run: |
-          pip install -e .[test]
+        run: pip install -e .[test]
 
       - name: Run tests
         run: pytest
