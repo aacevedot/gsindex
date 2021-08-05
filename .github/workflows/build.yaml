@@ -1,4 +1,4 @@
-name: Upload Test Package
+name: Build Package
 
 on:
   push:
@@ -20,10 +20,3 @@ jobs:
 
       - name: Build package
         run: python -m build
-
-      - name: Publish into test PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-          repository_url: https://test.pypi.org/legacy/
