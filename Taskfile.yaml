@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  default:
+    cmd: task --list
+
+  workflow:integrate:
+    desc: Run integrate workflow
+    cmd: act -W '.github/workflows/integrate.yaml'
